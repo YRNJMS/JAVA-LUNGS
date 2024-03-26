@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANG GALING</title>
+    <style>
+        *{
+            margin: 40px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+    
+        }
+        .container {
+            position: relative;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: #ffa60095;
+            padding: 20px;
+            border-radius: 20px;
+            width: 500px;
+        }
+        .container span {
+            text-align: right;
+        }
+        #order {
+            position: fixed;
+            bottom: 130px;
+            left: 620px;
+            padding: 10px;
+            border-radius: 10px;
+            color: black;
+            background-color: #3E9A4D;
+            transition: all 0.2s ease;
+        }
+        #order:hover {
+            background-color: white;
+            color: #3E9A4D;
+            backdrop-filter: blur(10px);
+            scale: 1.1;
+            filter: grayscale(0);
+            box-shadow: #2f333b 2px 2px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ORDER DETAIL SUMMARY</h1>
+        <hr>
+        <table>
+            <tr>
+              <td><strong>ITEM NAME:</strong></td>
+              <td><span id="Item-Name"></span></td>
+            </tr>
+            <tr>
+              <td><strong>PRICE(PHP):</strong></td>
+              <td><span id="Item-Price"></span></td>
+            </tr>
+            <tr>
+              <td><strong>QUANTITY:</strong></td>
+              <td><span id="Item-qty"></span></td>
+            </tr>
+            <tr>
+              <td><strong>DISCOUNT(%):</strong></td>
+              <td><span id="Item-Discount"></span></td>
+            </tr>
+            <tr>
+              <td><strong>TOTAL(PHP):</strong></td>
+              <td><span id="Item-Total"></span></td>
+            </tr>
+          </table>
+    </div>
+    
+<script language="JavaScript">
+
+        var itemName = prompt("Please enter item name: ");
+        var price = parseFloat(prompt("Enter the price for " + itemName));
+        var quantity = parseInt(prompt("Enter Quantity: "));
+        var discountPercent = parseFloat(prompt("Enter the Discount percent: "));
+
+        var discountLess = discountPercent / 100;
+        var discount = price * discountLess;
+        var discountedPrice = price - discount;
+
+        document.getElementById("Item-Name").textContent += itemName
+        document.getElementById("Item-Price").textContent += price
+        document.getElementById("Item-qty").textContent += quantity
+        document.getElementById("Item-Discount").textContent += discountPercent
+        document.getElementById("Item-Total").textContent += discountedPrice.toFixed(2)
+        function thankYouAlert() {
+  alert("THANK YOU FOR ORDERING!");
+}
+</script>
+</head>
+<body>
+
+<button id="order" onclick="thankYouAlert()">
+  ORDER NOW
+</button>
+</script>
+</body>
+</html>
